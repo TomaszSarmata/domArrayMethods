@@ -74,19 +74,25 @@ function doubleMoney() {
 //   updateDOM(userList);
 // }
 
-//Sort the users
+//sort - course implementation
 function sortUsers() {
-  userList.sort((a, b) => {
-    if (a.money > b.money) {
-      return -1;
-    } else if (a.money < b.money) {
-      return 1;
-    } else {
-      return 0;
-    }
-  });
+  userList.sort((a, b) => b.money - a.money);
   updateDOM();
 }
+
+//Sort the users - my implementation
+// function sortUsers() {
+//   userList.sort((a, b) => {
+//     if (a.money > b.money) {
+//       return -1;
+//     } else if (a.money < b.money) {
+//       return 1;
+//     } else {
+//       return 0;
+//     }
+//   });
+//   updateDOM();
+// }
 
 //EVENT LISTENERS
 addUserBtn.addEventListener("click", getRandomUser); //will add another user
