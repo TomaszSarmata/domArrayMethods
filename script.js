@@ -16,3 +16,5 @@ async function getRandomUser() {
   console.log(data);
 }
 getRandomUser();
+getRandomUser();
+getRandomUser();
