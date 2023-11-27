@@ -48,26 +48,18 @@ function updateDOM(providedData = userList) {
   });
 }
 
-//Format number as money
+//Add a user
+function addUser() {
+  getRandomUser();
+}
 
+//EVENT LISTENERS
+addUserBtn.addEventListener("click", addUser);
+
+//Format number as money
 function formatMoney(number) {
   //below code from the stackoverflow
   return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
-
   //below is a solution from the copilot
   // return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
-
-// function updateDOM() {
-//   userList.forEach((user) => {
-//     const nameEl = document.createElement("h3");
-//     nameEl.textContent = user.name;
-//     const moneyEl = document.createElement("h3");
-//     moneyEl.textContent = user.money;
-//     const person = document.createElement("div");
-//     person.classList.add("person");
-//     person.appendChild(nameEl);
-//     person.appendChild(moneyEl);
-//     main.appendChild(person);
-//   });
-// }
