@@ -22,7 +22,7 @@ async function getRandomUser() {
   //here is our actual constructor for the user
   const newUser = {
     name: `${user.name.first} ${user.name.last}`,
-    money: Math.floor(Math.random() * 1000000), //that will generate a new number up to a million
+    money: formatMoney(Math.floor(Math.random() * 1000000)), //that will generate a new number up to a million
   };
   addData(newUser);
 }
@@ -44,6 +44,13 @@ function updateDOM(providedData = userList) {
     element.innerHTML = `<strong>${user.name}</strong>${user.money}`;
     main.appendChild(element);
   });
+}
+
+//Format number as money
+
+function formatMoney(number) {
+  //below is a solution from the copilot
+  return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
 // function updateDOM() {
