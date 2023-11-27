@@ -56,16 +56,23 @@ function formatMoney(number) {
   // return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
-//Double the money
-//create a new array of users where the money * 2 - .map()
+//Double Money - coursework implementation for doubling money
 function doubleMoney() {
-  userList.map((user) => {
-    user.money = user.money * 2;
-    return userList;
-  });
-  //update  UI
-  updateDOM(userList);
+  userList = userList.map((user) => {
+    return { ...user, money: user.money * 2 };
+  }); //it was declared globally as let so we can reassign it
+  updateDOM();
 }
+
+//my implementation for doubleMoney
+// function doubleMoney() {
+//   userList.map((user) => {
+//     user.money = user.money * 2;
+//     return userList;
+//   });
+//   //update  UI
+//   updateDOM(userList);
+// }
 
 //Sort the users
 function sortUsers() {
