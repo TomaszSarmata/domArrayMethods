@@ -94,7 +94,19 @@ function sortUsers() {
 //   updateDOM();
 // }
 
+//Show millionaires
+function showMillionaires() {
+  newArr = [];
+  userList.forEach((user) => {
+    if (user.money >= 1000000) {
+      newArr.push(user);
+    }
+    updateDOM(newArr);
+  });
+}
+
 //EVENT LISTENERS
 addUserBtn.addEventListener("click", getRandomUser); //will add another user
 doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortUsers);
+showMillionairesBtn.addEventListener("click", showMillionaires);
