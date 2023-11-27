@@ -56,5 +56,17 @@ function formatMoney(number) {
   // return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
+//Double the money
+//create a new array of users where the money * 2 - .map()
+function doubleMoney() {
+  userList.map((user) => {
+    user.money = user.money * 2;
+    return userList;
+  });
+  //update  UI
+  updateDOM(userList);
+}
+
 //EVENT LISTENERS
 addUserBtn.addEventListener("click", getRandomUser); //will add another user
+doubleBtn.addEventListener("click", doubleMoney);
