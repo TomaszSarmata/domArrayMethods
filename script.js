@@ -25,26 +25,37 @@ async function getRandomUser() {
     money: Math.floor(Math.random() * 1000000), //that will generate a new number up to a million
   };
   addData(newUser);
-  createUI();
 }
 
 //Add new object/user to data array
 function addData(obj) {
   userList.push(obj);
+  updateDOM();
 }
 
 //Display users in the DOM using forEach
 
-function createUI() {
-  userList.forEach((user) => {
-    const nameEl = document.createElement("h3");
-    nameEl.textContent = user.name;
-    const moneyEl = document.createElement("h3");
-    moneyEl.textContent = user.money;
-    const person = document.createElement("div");
-    person.classList.add("person");
-    person.appendChild(nameEl);
-    person.appendChild(moneyEl);
-    main.appendChild(person);
+function updateDOM(providedData = userList) {
+  //clear the main div so that each time we have a new list of users
+  main.innerHTML = "<h2><strong>Person</strong> Wealth</h2>";
+  providedData.forEach(function (user) {
+    const element = document.createElement("div");
+    element.classList.add("person");
+    element.innerHTML = `<strong>${user.name}</strong>${user.money}`;
+    main.appendChild(element);
   });
 }
+
+// function updateDOM() {
+//   userList.forEach((user) => {
+//     const nameEl = document.createElement("h3");
+//     nameEl.textContent = user.name;
+//     const moneyEl = document.createElement("h3");
+//     moneyEl.textContent = user.money;
+//     const person = document.createElement("div");
+//     person.classList.add("person");
+//     person.appendChild(nameEl);
+//     person.appendChild(moneyEl);
+//     main.appendChild(person);
+//   });
+// }
