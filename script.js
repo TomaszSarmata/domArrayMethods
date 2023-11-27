@@ -67,6 +67,21 @@ function doubleMoney() {
   updateDOM(userList);
 }
 
+//Sort the users
+function sortUsers() {
+  userList.sort((a, b) => {
+    if (a.money > b.money) {
+      return -1;
+    } else if (a.money < b.money) {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
+  updateDOM();
+}
+
 //EVENT LISTENERS
 addUserBtn.addEventListener("click", getRandomUser); //will add another user
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListener("click", sortUsers);
