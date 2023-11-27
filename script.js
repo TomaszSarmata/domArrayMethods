@@ -48,14 +48,6 @@ function updateDOM(providedData = userList) {
   });
 }
 
-//Add a user
-function addUser() {
-  getRandomUser();
-}
-
-//EVENT LISTENERS
-addUserBtn.addEventListener("click", addUser);
-
 //Format number as money
 function formatMoney(number) {
   //below code from the stackoverflow
@@ -63,3 +55,6 @@ function formatMoney(number) {
   //below is a solution from the copilot
   // return number.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
+
+//EVENT LISTENERS
+addUserBtn.addEventListener("click", getRandomUser); //will add another user
