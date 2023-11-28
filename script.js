@@ -113,14 +113,14 @@ function showMillionaires() {
 
 //Double money
 function calculateWealth() {
-  const entireWealth = userList.reduce((acc, currVal) => {
-    return acc + currVal.money;
+  const entireWealth = userList.reduce((acc, user) => {
+    return acc + user.money;
   }, 0);
   let element = document.createElement("div");
-  element.classList.add("entire-wealth-container");
-  element.innerHTML = `<strong>Entire Wealth</strong>${formatMoney(
+
+  element.innerHTML = `<h3>Entire Wealth <strong>${formatMoney(
     entireWealth
-  )}`;
+  )}</strong></h3>`;
   main.appendChild(element);
 }
 
