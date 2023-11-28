@@ -111,8 +111,22 @@ function showMillionaires() {
 //   });
 // }
 
+//Double money
+function calculateWealth() {
+  const entireWealth = userList.reduce((acc, currVal) => {
+    return acc + currVal.money;
+  }, 0);
+  let element = document.createElement("div");
+  element.classList.add("entire-wealth-container");
+  element.innerHTML = `<strong>Entire Wealth</strong>${formatMoney(
+    entireWealth
+  )}`;
+  main.appendChild(element);
+}
+
 //EVENT LISTENERS
 addUserBtn.addEventListener("click", getRandomUser); //will add another user
 doubleBtn.addEventListener("click", doubleMoney);
 sortBtn.addEventListener("click", sortUsers);
 showMillionairesBtn.addEventListener("click", showMillionaires);
+calculateWealthBtn.addEventListener("click", calculateWealth);
